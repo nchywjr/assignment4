@@ -46,10 +46,12 @@ export default {
         }
     }, methods: {
         async fetchUsers(){
+                this.loading = true;  
                 const res = await axios.get(uri)
                 this.users = res.data
-                this.loading = true;     
-        }
-    }, 
+                this.loading = false;  
+        },
+        
+    }
 }
 </script>
