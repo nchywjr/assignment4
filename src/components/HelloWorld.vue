@@ -44,12 +44,13 @@ export default {
             ],
 
             users: []
-            ,loading: false
         }
     }, methods: {
         async fetchUsers(){
+            this.loading = true;
             const res = await axios.get(uri)
             this.users = res.data
+            this.loading = false;
         }
     }, 
 }
