@@ -11,6 +11,7 @@
                 :headers="headers"
                 :items="users"
                 :items-per-page="10"
+                :loading="loading"
                 >
                 </v-data-table>
             </v-col>
@@ -26,6 +27,7 @@ const uri = "https://api.coingecko.com/api/v3/coins/list"
 export default {
     data(){
         return {
+            
             headers:[
                 {
                     text: 'ID',
@@ -42,12 +44,13 @@ export default {
             ],
 
             users: []
+            ,loading: false
         }
     }, methods: {
         async fetchUsers(){
             const res = await axios.get(uri)
             this.users = res.data
         }
-    },
+    }, 
 }
 </script>
