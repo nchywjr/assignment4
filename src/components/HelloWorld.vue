@@ -27,7 +27,6 @@ const uri = "https://api.coingecko.com/api/v3/coins/list"
 export default {
     data(){
         return {
-            
             headers:[
                 {
                     text: 'ID',
@@ -47,10 +46,9 @@ export default {
         }
     }, methods: {
         async fetchUsers(){
-            this.loading = true;
-            const res = await axios.get(uri)
-            this.users = res.data
-            this.loading = false;
+                const res = await axios.get(uri)
+                this.users = res.data
+                this.loading = true;     
         }
     }, 
 }
